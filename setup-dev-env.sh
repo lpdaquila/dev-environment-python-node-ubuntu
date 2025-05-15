@@ -99,8 +99,22 @@ sudo npm install -g \
 	
 # Instalar o pyenv
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-echo "Não feche esse terminal e siga as instruções do Pyenv acima!!!!"
+# Use o comando abaixo se o de cima não funcionar
+# curl https://pyenv.run | bash
+
+# Adiciona configuração ao bashrc
+echo -e '\n# Configuração do pyenv' >> ~/.bashrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo -e 'eval "$(pyenv init --path)"\neval "$(pyenv init -)"' >> ~/.bashrc
+
+# Adiciona configuração ao zshrc (caso use o ZSH)
+# echo -e '\n# Configuração do pyenv' >> ~/.zshrc
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+# echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+# echo -e 'eval "$(pyenv init --path)"\neval "$(pyenv init -)"' >> ~/.zshrc
+
 
 echo "Ambiente de desenvolvimento configurado com sucesso!!!!!!"
 
-# Opcionais: zsh 
+# Opcionais: zsh-config
